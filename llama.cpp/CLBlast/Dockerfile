@@ -1,17 +1,17 @@
 FROM ubuntu:latest
 
 # Install Dependencies
-RUN apt-get update && apt-get install -y cmake git curl build-essential 
+RUN apt-get update && apt-get install -y cmake git curl build-essential pkg-config
 
 # Install OpenCL library
-RUN apt install -y ocl-icd-opencl-dev
-RUN apt install -y intel-opencl-icd
+RUN apt-get install -y ocl-icd-opencl-dev
+RUN apt-get install -y intel-opencl-icd
 
 # Install CLBlast library
-RUN apt install -y libclblast-dev
+RUN apt-get install -y libclblast-dev
 
 # CLBlast
-RUN apt install -y opencl-headers ocl-icd
+RUN apt-get install -y opencl-headers
 
 # Clone the project files into the Docker image
 RUN git clone https://github.com/ggerganov/llama.cpp
